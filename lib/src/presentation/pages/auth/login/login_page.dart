@@ -110,7 +110,7 @@ class LoginPage extends StatelessWidget {
                     //height: 50,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, 'registro');
+                        Navigator.pushNamed(context, 'select');
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF001EFF)),

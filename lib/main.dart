@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:salon_admin/src/presentation/pages/auth/login/login_page.dart';
-import 'package:salon_admin/src/presentation/pages/auth/register/registro_page.dart';
+import 'package:salon_admin/src/presentation/pages/auth/register/register_admin/registro_page.dart';
+import 'package:salon_admin/src/presentation/pages/auth/register/select_registro_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'login': (BuildContext context) => LoginPage(),
         'registro': (BuildContext context) => RegistroPage(),
+        'select': (BuildContext context) => SelectRegistroPage(),
       },
     );
   }
