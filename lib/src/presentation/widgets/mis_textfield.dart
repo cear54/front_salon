@@ -5,13 +5,15 @@ class MisTextfield extends StatelessWidget {
   IconData icono;
   Function(String text) onChanged;
   bool obscureText;
+  Color iconColor;
 
   MisTextfield(
       {super.key,
       required this.label,
       required this.icono,
       required this.onChanged,
-      this.obscureText = false});
+      this.obscureText = false,
+      this.iconColor = Colors.white});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class MisTextfield extends StatelessWidget {
         ),
         prefixIcon: Icon(
           icono,
-          color: Colors.white,
+          color: iconColor,
         ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.white),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_admin/src/presentation/widgets/mis_botones.dart';
 import 'package:salon_admin/src/presentation/widgets/mis_textfield.dart';
 
 class LoginPage extends StatelessWidget {
@@ -105,20 +106,14 @@ class LoginPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 25, right: 25, top: 5),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    //height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'select');
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF001EFF)),
-                      child: Text(
-                        'REGISTRATE',
-                        style: TextStyle(color: const Color(0xFFFAFAFA)),
-                      ),
-                    ),
+                  child: MisBotones(
+                    text: 'REGISTRAR',
+                    color: const Color.fromARGB(255, 14, 0, 90),
+                    textColor: Colors.white,
+                    altura: 35,
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'select');
+                    },
                   ),
                 ),
               ],
