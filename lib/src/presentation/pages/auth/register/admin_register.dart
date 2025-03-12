@@ -21,7 +21,7 @@ class RegistroPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
-              color: Color.fromRGBO(0, 0, 0, 0.3),
+              color: Color.fromRGBO(0, 0, 0, 0.4),
               colorBlendMode: BlendMode.darken,
             ),
             Container(
@@ -47,7 +47,7 @@ class RegistroPage extends StatelessWidget {
                     Text(
                       'REGISTRAR NEGOCIO',
                       style: TextStyle(
-                        color: const Color(0xFFFF00BF),
+                        color: const Color(0xFFFF64D8),
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -116,7 +116,7 @@ class RegistroPage extends StatelessWidget {
                       child: MisBotones(
                           text: 'REGISTRARME',
                           altura: 50,
-                          color: const Color.fromARGB(255, 255, 100, 216),
+                          color: const Color(0xFFFF64D8),
                           textColor: Colors.white,
                           onPressed: () {}),
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_admin/src/presentation/widgets/mis_botones.dart';
 import 'package:salon_admin/src/presentation/widgets/mis_btnBack.dart';
 import 'package:salon_admin/src/presentation/widgets/mis_textfield.dart';
 
@@ -19,7 +20,7 @@ class ClientRegister extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
-              color: Color.fromRGBO(0, 0, 0, 0.3),
+              color: Color.fromRGBO(0, 0, 0, 0.4),
               colorBlendMode: BlendMode.darken,
             ),
             Container(
@@ -40,19 +41,19 @@ class ClientRegister extends StatelessWidget {
                     Icon(
                       Icons.person_add_alt_1_outlined,
                       size: 60,
-                      color: Colors.white,
+                      color: const Color(0xFFFF00BF),
                     ),
                     Text(
                       'REGISTRAR USUARIO',
                       style: TextStyle(
-                        color: const Color(0xFFFF00BF),
+                        color: const Color.fromARGB(255, 255, 254, 255),
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 15, right: 15, top: 20),
+                      padding: const EdgeInsets.only(
+                          left: 15, right: 15, bottom: 5, top: 25),
                       child: MisTextfield(
                           label: 'Nombre',
                           icono: Icons.abc_outlined,
@@ -60,44 +61,55 @@ class ClientRegister extends StatelessWidget {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsets.only(left: 15, right: 15, top: 20),
+                          const EdgeInsets.only(left: 15, right: 15, bottom: 5),
                       child: MisTextfield(
-                          label: 'Nombre',
-                          icono: Icons.abc_outlined,
+                          label: 'Teléfono',
+                          icono: Icons.phone,
                           onChanged: (text) {}),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsets.only(left: 15, right: 15, top: 20),
+                          const EdgeInsets.only(left: 15, right: 15, bottom: 5),
                       child: MisTextfield(
-                          label: 'Nombre',
-                          icono: Icons.abc_outlined,
+                          label: 'Correo Electónico',
+                          icono: Icons.email,
                           onChanged: (text) {}),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsets.only(left: 15, right: 15, top: 20),
+                          const EdgeInsets.only(left: 15, right: 15, bottom: 5),
                       child: MisTextfield(
-                          label: 'Nombre',
-                          icono: Icons.abc_outlined,
+                          label: 'ID grupo',
+                          icono: Icons.key,
                           onChanged: (text) {}),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsets.only(left: 15, right: 15, top: 20),
+                          const EdgeInsets.only(left: 15, right: 15, bottom: 5),
                       child: MisTextfield(
-                          label: 'Nombre',
-                          icono: Icons.abc_outlined,
+                          label: 'Contraseña',
+                          icono: Icons.lock,
                           onChanged: (text) {}),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsets.only(left: 15, right: 15, top: 20),
+                          const EdgeInsets.only(left: 15, right: 15, bottom: 5),
                       child: MisTextfield(
-                          label: 'Nombre',
-                          icono: Icons.abc_outlined,
+                          label: 'Repita Contraseña',
+                          icono: Icons.lock_outline,
                           onChanged: (text) {}),
                     ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 25, left: 20, right: 20),
+                      child: MisBotones(
+                        text: 'REGISTRARME',
+                        onPressed: () {},
+                        altura: 40,
+                        color: const Color(0xFFFF00BF),
+                        textColor: Colors.white,
+                      ),
+                    )
                   ],
                 ),
               ),

@@ -41,9 +41,10 @@ class SelectRegistroPage extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 15),
                     child: Text(
                       'PROPIETARIO DE NEGOCIO\nDEDICADO A LA BELLEZA',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 10,
-                          //fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.bold,
                           color: const Color.fromARGB(255, 112, 0, 132)),
                     ),
                   ),
@@ -52,8 +53,8 @@ class SelectRegistroPage extends StatelessWidget {
                     child: MisBotones(
                         text: 'ADMINISTRACION',
                         altura: 45,
-                        color: Color.fromARGB(255, 14, 0, 90),
-                        textColor: Colors.white,
+                        color: Color.fromARGB(255, 51, 51, 51),
+                        textColor: const Color(0xFFFF64D8),
                         onPressed: () {
                           Navigator.pushNamed(context, 'registro');
                         }),
@@ -82,10 +83,11 @@ class SelectRegistroPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15),
                     child: Text(
-                      'USUARIOS Y CLIENTES\nDE LA BELLEZA CON ID',
+                      'USUARIOS Y CLIENTES\nDE LA BELLEZA CON ID GRUPO',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 10,
-                          //fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.bold,
                           color: const Color.fromARGB(255, 112, 0, 132)),
                     ),
                   ),
@@ -94,9 +96,8 @@ class SelectRegistroPage extends StatelessWidget {
                     child: MisBotones(
                         text: 'U S U A R I O',
                         altura: 45,
-                        color: Color.from(
-                            alpha: 1, red: 0, green: 0.686, blue: 0.035),
-                        textColor: Colors.white,
+                        color: const Color(0xFFFF64D8),
+                        textColor: const Color(0xFF303030),
                         onPressed: () {
                           Navigator.pushNamed(context, 'client');
                         }),
