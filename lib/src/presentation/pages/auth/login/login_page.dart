@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:salon_admin/src/presentation/pages/auth/login/login_bloc_cubit.dart';
 import 'package:salon_admin/src/presentation/widgets/mis_botones.dart';
 import 'package:salon_admin/src/presentation/widgets/mis_textfield.dart';
@@ -16,8 +17,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _loginBlocCubit?.dispose();
+    });
   }
 
   @override
@@ -97,17 +100,38 @@ class _LoginPageState extends State<LoginPage> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _loginBlocCubit!.login();
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFCCFF00)),
-                      child: Text(
-                        'INICIAR SESION',
-                        style: TextStyle(color: Colors.deepPurple),
-                      ),
-                    ),
+                    child: StreamBuilder(
+                        stream: _loginBlocCubit!.validateForm,
+                        builder: (context, snapshot) {
+                          return ElevatedButton(
+                            onPressed: () {
+                              if (snapshot.hasData) {
+                                _loginBlocCubit!.login();
+                              } else {
+                                Fluttertoast.showToast(
+                                    msg: "El formulario no es válido",
+                                    toastLength: Toast.LENGTH_LONG,
+                                    gravity: ToastGravity.BOTTOM,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor:
+                                        const Color.fromARGB(255, 0, 4, 255),
+                                    textColor: Colors.white,
+                                    fontSize: 16.0);
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: snapshot.hasData
+                                    ? const Color(0xFFCCFF00)
+                                    : const Color(0xFFFF25BE)),
+                            child: Text(
+                              'INICIAR SESION',
+                              style: TextStyle(
+                                  color: snapshot.hasData
+                                      ? Colors.deepPurple
+                                      : Colors.white),
+                            ),
+                          );
+                        }),
                   ),
                 ),
                 Row(
