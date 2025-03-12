@@ -1,7 +1,7 @@
 import 'package:rxdart/rxdart.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:salon_admin/src/presentation/pages/auth/login/login_bloc_state.dart';
+import 'package:salon_admin/src/presentation/pages/auth/login/cubits/login_bloc_state.dart';
 
 class LoginBlocCubit extends Cubit<LoginBlocState> {
   LoginBlocCubit() : super(LoginInitial());

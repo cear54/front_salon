@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:salon_admin/src/bloc_providers.dart';
 import 'package:salon_admin/src/presentation/pages/auth/login/login_page.dart';
-import 'package:salon_admin/src/presentation/pages/auth/register/admin_register.dart';
+import 'package:salon_admin/src/presentation/pages/auth/register/cubits/reg_a_bloc_cubit.dart';
+import 'package:salon_admin/src/presentation/pages/auth/register/reg_a_page.dart';
 import 'package:salon_admin/src/presentation/pages/auth/register/select_registro_page.dart';
 
-import 'src/presentation/pages/auth/login/login_bloc_cubit.dart';
-import 'src/presentation/pages/auth/register/client_register.dart';
+import 'src/presentation/pages/auth/login/cubits/login_bloc_cubit.dart';
+import 'src/presentation/pages/auth/register/reg_c_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,8 +19,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginBlocCubit(),
+    return MultiBlocProvider(
+      providers: blocProviders,
+      // [
+      //   BlocProvider(
+      //     create: (context) => LoginBlocCubit(),
+      //   ),
+      //   BlocProvider(
+      //     create: (context) => RegABlocCubit(),
+      //   ),
+      // ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false, //quitar debug
         title: 'Flutter Demo',

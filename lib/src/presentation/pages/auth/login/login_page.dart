@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:salon_admin/src/presentation/pages/auth/login/login_bloc_cubit.dart';
+import 'package:salon_admin/src/presentation/pages/auth/login/cubits/login_bloc_cubit.dart';
 import 'package:salon_admin/src/presentation/widgets/mis_botones.dart';
 import 'package:salon_admin/src/presentation/widgets/mis_textfield.dart';
 
