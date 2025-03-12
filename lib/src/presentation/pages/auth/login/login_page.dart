@@ -1,12 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:salon_admin/src/presentation/pages/auth/login/login_bloc_cubit.dart';
 import 'package:salon_admin/src/presentation/widgets/mis_botones.dart';
 import 'package:salon_admin/src/presentation/widgets/mis_textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  LoginBlocCubit? _loginBlocCubit;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    _loginBlocCubit = BlocProvider.of<LoginBlocCubit>(context, listen: false);
+
     return Scaffold(
         body: SizedBox(
       width: double.infinity,
@@ -46,25 +63,33 @@ class LoginPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: MisTextfield(
-                    label: 'Correo Electrónico ',
-                    icono: Icons.email,
-                    onChanged: (text) {
-                      print('TEXTO: ${text}');
-                    },
-                  ),
+                  child: StreamBuilder(
+                      stream: _loginBlocCubit?.emailStream,
+                      builder: (context, snapshot) {
+                        return MisTextfield(
+                          label: 'Correo Electrónico ',
+                          icono: Icons.email,
+                          onChanged: (text) {
+                            _loginBlocCubit?.change_mail(text);
+                          },
+                        );
+                      }),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                  child: MisTextfield(
-                    label: 'Contraseña ',
-                    icono: Icons.key,
-                    obscureText: true,
-                    onChanged: (text) {
-                      print('TEXTO: ${text}');
-                    },
-                  ),
+                  child: StreamBuilder(
+                      stream: _loginBlocCubit?.passwordStream,
+                      builder: (context, snapshot) {
+                        return MisTextfield(
+                          label: 'Contraseña ',
+                          icono: Icons.key,
+                          obscureText: true,
+                          onChanged: (text) {
+                            _loginBlocCubit?.change_pass(text);
+                          },
+                        );
+                      }),
                 ),
                 Padding(
                   padding:
@@ -73,7 +98,9 @@ class LoginPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _loginBlocCubit!.login();
+                      },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFCCFF00)),
                       child: Text(
