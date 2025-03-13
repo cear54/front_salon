@@ -20,18 +20,16 @@ class RegCBlocCubit extends Cubit<RegCBlocState> {
   Stream<String> get pass2Stream => _password2Controller.stream;
 
   void changeName(String name) {
-    if (name.length < 2) {
-      _nameController.sink
-          .addError('EL nombre es muy corto (2 caracteres min.)');
+    if (name.isNotEmpty && name.length < 2) {
+      _nameController.sink.addError('Al menos 2 caracteres');
     } else {
       _nameController.sink.add(name);
     }
   }
 
   void changeTelefono(String telefono) {
-    if (telefono.length < 6) {
-      _telefonoController.sink
-          .addError('EL telefono es muy corto (6 caracteres min.)');
+    if (telefono.isNotEmpty && telefono.length < 6) {
+      _telefonoController.sink.addError('Al menos 6 caracteres');
     } else {
       _telefonoController.sink.add(telefono);
     }
@@ -51,27 +49,24 @@ class RegCBlocCubit extends Cubit<RegCBlocState> {
   }
 
   void changeIdgupo(String idgrupo) {
-    if (idgrupo.length < 2) {
-      _idgrupoController.sink
-          .addError('EL nombre es mjuy corto (2 caracteres min.)');
+    if (idgrupo.isNotEmpty && idgrupo.length < 14 || idgrupo.length > 14) {
+      _idgrupoController.sink.addError('Debe contener 14 caracteresa)');
     } else {
       _idgrupoController.sink.add(idgrupo);
     }
   }
 
   void changePassword(String password) {
-    if (password.length < 4) {
-      _passwordController.sink
-          .addError('La contraseña no es valida (4 caracteres min.)');
+    if (password.isNotEmpty && password.length < 4) {
+      _passwordController.sink.addError('Al menos 4 caracteres');
     } else {
       _passwordController.sink.add(password);
     }
   }
 
   void changePassword2(String pass2) {
-    if (pass2.length < 4) {
-      _password2Controller.sink
-          .addError('La contraseña no es valida (4 caracteres min.)');
+    if (pass2.isNotEmpty && pass2.length < 4) {
+      _password2Controller.sink.addError('Al menos 4 caracteres');
     } else {
       _password2Controller.sink.add(pass2);
     }

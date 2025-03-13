@@ -71,6 +71,7 @@ class _ClientRegisterState extends State<ClientRegister> {
                           builder: (context, snapshot) {
                             return MisTextfield(
                                 label: 'Nombre',
+                                errorTx: snapshot.error?.toString(),
                                 icono: Icons.abc_outlined,
                                 onChanged: (text) {
                                   _regCBlocCubit!.changeName(text);
@@ -85,6 +86,7 @@ class _ClientRegisterState extends State<ClientRegister> {
                           builder: (context, snapshot) {
                             return MisTextfield(
                                 label: 'Teléfono',
+                                errorTx: snapshot.error?.toString(),
                                 icono: Icons.phone,
                                 onChanged: (text) {
                                   _regCBlocCubit!.changeTelefono(text);
@@ -99,6 +101,7 @@ class _ClientRegisterState extends State<ClientRegister> {
                           builder: (context, snapshot) {
                             return MisTextfield(
                                 label: 'Correo Electónico',
+                                errorTx: snapshot.error?.toString(),
                                 icono: Icons.email,
                                 onChanged: (text) {
                                   _regCBlocCubit!.changeEmail(text);
@@ -113,6 +116,7 @@ class _ClientRegisterState extends State<ClientRegister> {
                           builder: (context, snapshot) {
                             return MisTextfield(
                                 label: 'ID grupo',
+                                errorTx: snapshot.error?.toString(),
                                 icono: Icons.key,
                                 onChanged: (text) {
                                   _regCBlocCubit!.changeIdgupo(text);
@@ -127,6 +131,7 @@ class _ClientRegisterState extends State<ClientRegister> {
                           builder: (context, snapshot) {
                             return MisTextfield(
                                 label: 'Contraseña',
+                                errorTx: snapshot.error?.toString(),
                                 icono: Icons.lock,
                                 onChanged: (text) {
                                   _regCBlocCubit!.changePassword(text);
@@ -141,6 +146,7 @@ class _ClientRegisterState extends State<ClientRegister> {
                           builder: (context, snapshot) {
                             return MisTextfield(
                                 label: 'Repita Contraseña',
+                                errorTx: snapshot.error?.toString(),
                                 icono: Icons.lock_outline,
                                 onChanged: (text) {
                                   _regCBlocCubit!.changePassword2(text);

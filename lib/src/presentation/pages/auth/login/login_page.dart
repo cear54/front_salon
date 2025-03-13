@@ -70,6 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                       stream: _loginBlocCubit?.emailStream,
                       builder: (context, snapshot) {
                         return MisTextfield(
+                          errorTx: snapshot.error?.toString(),
                           label: 'Correo Electrónico ',
                           icono: Icons.email,
                           onChanged: (text) {
@@ -85,7 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                       stream: _loginBlocCubit?.passwordStream,
                       builder: (context, snapshot) {
                         return MisTextfield(
-                          label: 'Contraseña ',
+                          errorTx: snapshot.error?.toString(),
+                          label: 'Contraseña',
                           icono: Icons.key,
                           obscureText: true,
                           onChanged: (text) {

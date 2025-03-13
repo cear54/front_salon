@@ -79,6 +79,7 @@ class _RegistroPageState extends State<RegistroPage> {
                           stream: _regAblocCubit!.nameStream,
                           builder: (context, snapshot) {
                             return MisTextfield(
+                              errorTx: snapshot.error?.toString(),
                               label: 'Nombre del Negocio',
                               icono: Icons.add_business,
                               iconColor: const Color(0xFFBFDDFF),
@@ -94,6 +95,7 @@ class _RegistroPageState extends State<RegistroPage> {
                           stream: _regAblocCubit!.emailStream,
                           builder: (context, snapshot) {
                             return MisTextfield(
+                              errorTx: snapshot.error?.toString(),
                               label: 'Correo Electrónico',
                               icono: Icons.email,
                               iconColor: const Color(0xFFBFDDFF),
@@ -112,6 +114,7 @@ class _RegistroPageState extends State<RegistroPage> {
                                 stream: _regAblocCubit!.telefonoStream,
                                 builder: (context, snapshot) {
                                   return MisTextfield(
+                                    errorTx: snapshot.error?.toString(),
                                     label: 'Teléfono',
                                     icono: Icons.phone_android,
                                     iconColor: const Color(0xFFBFDDFF),
@@ -131,7 +134,8 @@ class _RegistroPageState extends State<RegistroPage> {
                           stream: _regAblocCubit!.direcStream,
                           builder: (context, snapshot) {
                             return MisTextfield(
-                              label: 'Dirección (opcional)',
+                              errorTx: snapshot.error?.toString(),
+                              label: 'Dirección',
                               icono: Icons.place,
                               iconColor: const Color(0xFFBFDDFF),
                               onChanged: (text) {
@@ -146,6 +150,7 @@ class _RegistroPageState extends State<RegistroPage> {
                           stream: _regAblocCubit!.passStream,
                           builder: (context, snapshot) {
                             return MisTextfield(
+                              errorTx: snapshot.error?.toString(),
                               label: 'Contraseña',
                               icono: Icons.security,
                               obscureText: true,
@@ -162,6 +167,7 @@ class _RegistroPageState extends State<RegistroPage> {
                           stream: _regAblocCubit!.pass2Stream,
                           builder: (context, snapshot) {
                             return MisTextfield(
+                              errorTx: snapshot.error?.toString(),
                               label: 'Confirmar Contraseña',
                               obscureText: true,
                               icono: Icons.security,

@@ -13,15 +13,15 @@ class LoginBlocCubit extends Cubit<LoginBlocState> {
   Stream<String> get passwordStream => _passwordController.stream;
 
   void change_mail(String email) {
-    if (email.length < 6) {
-      _emailController.sink.addError('El email es muy corto');
+    if (email.isNotEmpty && email.length < 5) {
+      _emailController.sink.addError('El formato no coincide');
     } else {
       _emailController.sink.add(email);
     }
   }
 
   void change_pass(String password) {
-    if (password.length < 3) {
+    if (password.isNotEmpty && password.length < 3) {
       _passwordController.sink.addError('Contraseña muy corta');
     } else {
       _passwordController.sink.add(password);

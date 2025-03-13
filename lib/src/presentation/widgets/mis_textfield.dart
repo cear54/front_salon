@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class MisTextfield extends StatelessWidget {
   String label;
+  String? errorTx;
   IconData icono;
   Function(String text) onChanged;
   bool obscureText;
@@ -10,6 +11,7 @@ class MisTextfield extends StatelessWidget {
   MisTextfield(
       {super.key,
       required this.label,
+      this.errorTx,
       required this.icono,
       required this.onChanged,
       this.obscureText = false,
@@ -23,6 +25,7 @@ class MisTextfield extends StatelessWidget {
       },
       obscureText: obscureText,
       decoration: InputDecoration(
+        errorText: errorTx,
         label: Text(
           label,
           style: TextStyle(color: Colors.white),
